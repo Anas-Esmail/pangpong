@@ -2,7 +2,7 @@ import turtle
 import os
 
 wn = turtle.Screen()
-wn.title("Pong")
+wn.title("pang Pong")
 wn.bgcolor("black")
 wn.setup(width=800, height=600)
 wn.tracer(0)
@@ -36,8 +36,8 @@ ball.shape("square")
 ball.color("white")
 ball.penup()
 ball.goto(0, 0)
-ball.dx = 2
-ball.dy = 2
+ball.dx = 0.2
+ball.dy = 0.2
 
 # Pen
 pen = turtle.Turtle()
@@ -116,9 +116,9 @@ while True:
     # Paddle and ball collisions
     if ball.xcor() < -340 and ball.ycor() < paddle_a.ycor() + 50 and ball.ycor() > paddle_a.ycor() - 50:
         ball.dx *= -1 
-        os.system("afplay bounce.wav&")
+    
     
     elif ball.xcor() > 340 and ball.ycor() < paddle_b.ycor() + 50 and ball.ycor() > paddle_b.ycor() - 50:
         ball.dx *= -1
-        os.system("afplay bounce.wav&")
+     
     
