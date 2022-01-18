@@ -126,7 +126,7 @@ while True:
     if score_a==10 :
         pen.clear()
         pen.write("player A is winner",font=("Courier", 24, "normal"))
-       
+        ball.dx = 0
     elif score_b==10:
         pen.clear()
         pen.write("player B is winner",font=("Courier", 24, "normal"))
