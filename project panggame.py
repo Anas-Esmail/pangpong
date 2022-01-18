@@ -2,7 +2,7 @@ import turtle
 import os
 
 wn = turtle.Screen()
-wn.title("pang Pong")
+wn.title("Pong")
 wn.bgcolor("black")
 wn.setup(width=800, height=600)
 wn.tracer(0)
@@ -38,7 +38,6 @@ ball.penup()
 ball.goto(0, 0)
 ball.dx = 0.2
 ball.dy = 0.2
-
 # Pen
 pen = turtle.Turtle()
 pen.speed(0)
@@ -51,23 +50,24 @@ pen.write("Player A: 0  Player B: 0", align="center", font=("Courier", 24, "norm
 
 # Functions
 def paddle_a_up():
-    y = paddle_a.ycor()
-    y += 20
-    paddle_a.sety(y)
+      paddle_a.ycor()>200
+      y = paddle_a.ycor()
+      y += 40
+      paddle_a.sety(y)
 
 def paddle_a_down():
     y = paddle_a.ycor()
-    y -= 20
+    y -= 40
     paddle_a.sety(y)
 
 def paddle_b_up():
     y = paddle_b.ycor()
-    y += 20
+    y += 40
     paddle_b.sety(y)
 
 def paddle_b_down():
     y = paddle_b.ycor()
-    y -= 20
+    y -= 40
     paddle_b.sety(y)
 
 # Keyboard bindings
@@ -86,7 +86,9 @@ while True:
     ball.sety(ball.ycor() + ball.dy)
 
     # Border checking
-
+    # if paddle_b.ycor() > 290:
+    #     paddle_b.ycor(290)
+    #     os.system("afplay bounce.wav&")
     # Top and bottom
     if ball.ycor() > 290:
         ball.sety(290)
@@ -116,9 +118,17 @@ while True:
     # Paddle and ball collisions
     if ball.xcor() < -340 and ball.ycor() < paddle_a.ycor() + 50 and ball.ycor() > paddle_a.ycor() - 50:
         ball.dx *= -1 
-    
+      
     
     elif ball.xcor() > 340 and ball.ycor() < paddle_b.ycor() + 50 and ball.ycor() > paddle_b.ycor() - 50:
         ball.dx *= -1
-     
-    
+   
+    if score_a==10 :
+        pen.clear()
+        pen.write("player A is winner",font=("Courier", 24, "normal"))
+       
+    elif score_b==10:
+        pen.clear()
+        pen.write("player B is winner",font=("Courier", 24, "normal"))
+        ball.dx = 0
+        
